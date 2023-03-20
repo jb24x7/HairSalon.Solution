@@ -1,15 +1,15 @@
 using System.Collections.Generic;
 
-namespace RestaurantCuisine.Models
+namespace HairSalon.Models
 
 {
-    public class Restaurant
+    public class Client
     {
-        public int RestaurantId { get; set; }
+        public int ClientId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public int CuisineId { get; set; }
-        public Cuisine Cuisine { get; set; }
+        public int StylistId { get; set; }
+        public Stylist Stylist { get; set; }
         public List<Review> Reviews { get; set; }
 
     }

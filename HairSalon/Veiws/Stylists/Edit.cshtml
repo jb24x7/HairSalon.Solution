@@ -2,15 +2,15 @@
   Layout = "_Layout";
 }
 
-@model RestaurantCuisine.Models.Cuisine
+@model HairSalon.Models.Stylist
 
 <h2>Edit</h2>
 
-<h4>Edit this cuisine: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Edit this stylist: @Html.DisplayFor(model => model.Name)</h4>
 <p></p>
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.CuisineId)
+  @Html.HiddenFor(model => model.StylistId)
 
   @Html.LabelFor(model => model.Name) <span>&nbsp;</span>
   @Html.EditorFor(model => model.Name) <span>&nbsp;</span>

@@ -2,28 +2,28 @@
   Layout = "_Layout";
 }
 
-@model RestaurantCuisine.Models.Cuisine
-@using RestaurantCuisine.Models
+@model HairSalon.Models.Stylist
+@using HairSalon.Models
 
-<h2>Cuisine Details</h2>
+<h2>Stylist Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
 
-@if (@Model.Restaurants.Count == 0)
+@if (@Model.Clients.Count == 0)
 {
-  <h3>No restaurants have been added to this cuisine yet!</h3>
+  <h3>No lients have been added to this stylist yet!</h3>
 } 
 else
 {
-  <h3>Restaurants:</h3>
+  <h3>Clients:</h3>
   <ul>
-    @foreach (Restaurant restaurant in Model.Restaurants)
+    @foreach (Client client in Model.Clients)
     {
-      <li>@Html.ActionLink($"{restaurant.Name}", "Details", "Restaurants", new { id = restaurant.RestaurantId })</li>
+      <li>@Html.ActionLink($"{client.Name}", "Details", "Clients", new { id = client.ClientId })</li>
     }
   </ul>
 }
 
-<p>@Html.ActionLink("Edit Cuisine", "Edit", new { id = Model.CuisineId })</p>
-<p>@Html.ActionLink("Delete Cuisine", "Delete", new { id = Model.CuisineId })</p>
+<p>@Html.ActionLink("Edit Stylist", "Edit", new { id = Model.StylistId })</p>
+<p>@Html.ActionLink("Delete Stylist", "Delete", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>

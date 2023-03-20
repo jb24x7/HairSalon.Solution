@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Review
+
+<h2>Review Details for @Model.Client.Name</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)<h3>
+<h3>@Html.DisplayNameFor(model => model.Author): @Html.DisplayFor(model => model.Author)<h3>
+<h3>@Html.DisplayNameFor(model => model.Body): @Html.DisplayFor(model => model.Body)<h3>
+
+<p>@Html.ActionLink("Edit Review", "Edit", new { id = Model.ReviewId })</p>
+<p>@Html.ActionLink("Delete Review", "Delete", new { id = Model.ReviewId })</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>

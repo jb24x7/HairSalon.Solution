@@ -2,11 +2,11 @@
   Layout = "_Layout";
 }
 
-@model HairSalon.Models.Client
+@model HairSalon.Models.Review
 
 <h2>Are you sure you want to delete this?</h2>
 
-@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)
+@Html.DisplayNameFor(model => model.Body): @Html.DisplayFor(model => model.Body)
 @using (Html.BeginForm())
 {
   <input type="submit" value="Delete" />

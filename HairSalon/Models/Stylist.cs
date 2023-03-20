@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-namespace RestaurantCuisine.Models
+namespace HairSalon.Models
 {
-  public class Cuisine
+  public class Stylist
   {
-    public int CuisineId { get; set; }
+    public int StylistId { get; set; }
     public string Name { get; set; }
-    public List<Restaurant> Restaurants { get; set; }
+    public List<Client> Clients { get; set; }
   }
 }
 

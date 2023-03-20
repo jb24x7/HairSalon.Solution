@@ -1,32 +1,32 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using RestaurantCuisine.Models;
+using HairSalon.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RestaurantCuisine.Controllers
+namespace HairSalon.Controllers
 {
-  public class RestaurantsController : Controller
+  public class ClientsController : Controller
   {
-    private readonly RestaurantCuisineContext _db;
+    private readonly HairSalonContext _db;
 
-    public RestaurantsController(RestaurantCuisineContext db)
+    public ClientsController(HairSalonContext db)
     {
       _db = db;
     }
 
     public ActionResult Index()
     {
-      List<Restaurant> model = _db.Restaurants
-                            .Include(restaurant => restaurant.Cuisine)
+      List<Client> model = _db.Clients
+                            .Include(client => client.Stylist)
                             .ToList();
       return View(model);
     }
 
     public ActionResult Create()
     {
-      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
       return View();
     }
 
@@ -34,58 +34,58 @@ namespace RestaurantCuisine.Controllers
     [HttpPost]
     public ActionResult Find(string queryString)
     {
-      List<Restaurant> model = _db.Restaurants.Include(restaurant => restaurant.Cuisine).Where(model => model.Name.Contains(queryString)).ToList();
+      List<Client> model = _db.Clients.Include(client => client.Stylist).Where(model => model.Name.Contains(queryString)).ToList();
       return View("Index", model);
     }
 
 
     [HttpPost]
-    public ActionResult Create(Restaurant restaurant)
+    public ActionResult Create(Client client)
     {
-      if (restaurant.CuisineId == 0)
+      if (client.StylistId == 0)
       {
         return RedirectToAction("Create");
       }
-      _db.Restaurants.Add(restaurant);
+      _db.Clients.Add(client);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)
     {
-      Restaurant thisRestaurant = _db.Restaurants
-                          .Include(restaurant => restaurant.Cuisine)
-                          .Include(restaurant => restaurant.Reviews)
-                          .FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      return View(thisRestaurant);
+      Client thisClient = _db.Clients
+                          .Include(client => client.Stylist)
+                          .Include(client => client.Reviews)
+                          .FirstOrDefault(client => client.ClientId == id);
+      return View(thisClient);
     }
 
     public ActionResult Edit(int id)
     {
-      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
-      return View(thisRestaurant);
+      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
+      return View(thisClient);
     }
 
     [HttpPost]
-    public ActionResult Edit(Restaurant restaurant)
+    public ActionResult Edit(Client client)
     {
-      _db.Restaurants.Update(restaurant);
+      _db.Clients.Update(client);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
     {
-      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      return View(thisRestaurant);
+      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      return View(thisClient);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
-      _db.Restaurants.Remove(thisRestaurant);
+      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+      _db.Clients.Remove(thisClient);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

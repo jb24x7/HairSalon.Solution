@@ -1,0 +1,39 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Review
+
+<h4>Add a new review</h4>
+
+<p><strong>NOTE:</strong> You need to have at least one client before you can add an review!</p>
+<p>Go to @Html.ActionLink("this page", "Create", "Clients") to create a client.</p>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Author)
+  <p>@Html.TextBoxFor(model => model.Author)</p>
+
+  <p>@Html.DropDownListFor(model => model.Stars, new List<SelectListItem>
+    {
+      new SelectListItem {Text="⭐", Value="1"},
+      new SelectListItem {Text="⭐⭐", Value="2"},
+      new SelectListItem {Text="⭐⭐⭐", Value="3"},
+      new SelectListItem {Text="⭐⭐⭐⭐", Value="4"},
+      new SelectListItem {Text="⭐⭐⭐⭐⭐", Value="5"},
+    }, "Star rating:")
+  </p>
+
+  @Html.LabelFor(model => model.Title)
+  <p>@Html.TextBoxFor(model => model.Title)</p>
+
+  @Html.LabelFor(model => model.Body)
+  <p>@Html.TextBoxFor(model => model.Body)</p>
+
+
+  @Html.LabelFor(model => model.Client) <span>&nbsp;</span>
+  @Html.DropDownList("ClientId") <span>&nbsp;</span>
+  <p></p>
+  <p><input type="submit" value="Add new review" class="btn btn-default" /></p>
+}
+<p>@Html.ActionLink("Go Back", "Index", "Clients")</p>

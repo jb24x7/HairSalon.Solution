@@ -1,14 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace RestaurantCuisine.Models
+namespace HairSalon.Models
 {
-  public class RestaurantCuisineContext : DbContext
+  public class HairSalonContext : DbContext
   {
-    public DbSet<Cuisine> Cuisines { get; set; }
-    public DbSet<Restaurant> Restaurants { get; set; }
+    public DbSet<Stylist> Stylists { get; set; }
+    public DbSet<Client> Clients { get; set; }
 
     public DbSet<Review> Reviews { get; set; }
 
-    public RestaurantCuisineContext(DbContextOptions options) : base(options) { }
+    public HairSalonContext(DbContextOptions options) : base(options) { }
   }
 }

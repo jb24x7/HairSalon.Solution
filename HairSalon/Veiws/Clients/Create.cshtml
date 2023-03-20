@@ -2,12 +2,12 @@
   Layout = "_Layout";
 }
 
-@model RestaurantCuisine.Models.Restaurant
+@model HairSalon.Models.Client
 
-<h4>Add a new restaurant</h4>
+<h4>Add a new client</h4>
 
-<p><strong>NOTE:</strong> You need to have at least one cuisine before you can add an restaurant!</p>
-<p>Go to @Html.ActionLink("this page", "Create", "Cuisines") to create a cuisine.</p>
+<p><strong>NOTE:</strong> You need to have at least one stylist before you can add an client!</p>
+<p>Go to @Html.ActionLink("this page", "Create", "Stylists") to create a stylist.</p>
 
 @using (Html.BeginForm())
 {
@@ -17,9 +17,9 @@
   @Html.LabelFor(model => model.Description)
   <p>@Html.TextBoxFor(model => model.Description)</p>
 
-  @Html.LabelFor(model => model.Cuisine) <span>&nbsp;</span>
-  @Html.DropDownList("CuisineId") <span>&nbsp;</span>
+  @Html.LabelFor(model => model.Stylist) <span>&nbsp;</span>
+  @Html.DropDownList("StylistId") <span>&nbsp;</span>
   <p></p>
-  <p><input type="submit" value="Add new restaurant" class="btn btn-default" /></p>
+  <p><input type="submit" value="Add new client" class="btn btn-default" /></p>
 }
-<p>@Html.ActionLink("Show all restaurants", "Index")</p>
+<p>@Html.ActionLink("Show all lients", "Index")</p>
