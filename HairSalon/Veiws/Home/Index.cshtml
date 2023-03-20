@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>Welcome to the To Do List!</h1>
+
+
+<a href='@Url.Action("Index", "Users")'>
+  <button></button>
+</a>
+<p>@Html.ActionLink("See all restaurants", "Index", "Restaurants")</p>
+<p>@Html.ActionLink("See all cuisines", "Index", "Cuisines")</p>

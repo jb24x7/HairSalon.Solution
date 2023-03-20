@@ -1,0 +1,67 @@
+body {
+	background-image: url('../assets/currency_background.jpg');
+	background-color: rgb(28, 26, 26);
+	color: white;
+	font-weight: bolder;
+	font-size: larger;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+.vendorDescription {
+	display: inline;
+}
+
+.btn {
+	color: #333;
+	background-color: #eee;
+}
+
+ul {
+	padding: 0;
+	list-style-type: none;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.review-card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	background-color: #ffffff33;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	margin: 1rem 0;
+}
+.review-title {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.review-author {
+	font-size: 1rem;
+	font-style: italic;
+}
+.review-body {
+	margin: 1rem 0;
+	font-size: 1rem;
+}
+
+div#footer {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	color: #CCC;
+	background: #333;
+	padding: 8px;
+}

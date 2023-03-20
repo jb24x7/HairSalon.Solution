@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+
+@model RestaurantCuisine.Models.Restaurant
+@using RestaurantCuisine.Models
+
+<h2>Restaurant Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
+<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)<h3>
+<h3>@Html.DisplayNameFor(model => model.Cuisine): @Html.DisplayFor(model => model.Cuisine.Name)<h3>
+
+<p>@Html.ActionLink("Edit Restaurant", "Edit", new { id = Model.RestaurantId })</p>
+<p>@Html.ActionLink("Delete Restaurant", "Delete", new { id = Model.RestaurantId })</p>
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<hr>
+<p>@Html.ActionLink("Add a review", "Create", "Reviews", new { id = Model.RestaurantId })</p>
+<ul>
+  @foreach(Review review in Model.Reviews)
+  {
+    <li class="review-card">
+      <div>@for (int i=0; i < review.Stars; i++) {
+        <span>⭐</span>
+      }</div>
+      <div class="review-title">@Html.DisplayFor(model => review.Title)</div>
+      <div class="review-author">by @Html.DisplayFor(model => review.Author)</div>
+      <div class="review-body">@Html.DisplayFor(model => review.Body)</div>
+    </li>
+  }
+</ul>
